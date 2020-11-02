@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="宅码社区论坛">
+  <meta name="author" content="罗二">
+  <title>宅码社区论坛-登录</title>
+  <link rel="icon" th:href="@{/img/ico.png}"/>
+  <!-- Bootstrap core CSS -->
+  <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.2/css/bootstrap.css}" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="asserts/css/signin.css" th:href="@{/css/signin.css}" rel="stylesheet">
+</head>
+
+<body class="text-center">
+<form class="form-signin" th:action="@{/login}" method="post">
+  <img class="mb-4" th:src="@{/img/ico.png}"  alt="" width="170" height="170">
+  <h1 class="h3 mb-3 font-weight-normal" >请登录</h1>
+  <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+  <label class="sr-only" th:text="#{login.username}">Username</label>
+  <input type="username" th:class="|form-control ${usernameMsg!=null?'is-invalid':''}|"
+         th:value="${param.username}"
+         id="username" name="username" placeholder="请输入您的账号" required>
+  <div class="invalid-feedback" th:text="${usernameMsg}">
+    该账号不存在!
+  </div>
+  </div>
+  <label class="sr-only"  for="password">密码</label>
+  <input type="password" th:class="|form-control ${passwordMsg!=null?'is-invalid':''}|"
+         th:value="${param.password}"
+         id="password" name="password" placeholder="请输入您的密码" required>
+  <div class="invalid-feedback" th:text="${passwordMsg}">
+    密码长度不能小于8位!
+  </div>
+  <div class="form-group row mt-4">
+    <div class="col-sm-6">
+      <input type="text" th:class="|form-control ${codeMsg!=null?'is-invalid':''}|"
+             id="verifycode" name="code" placeholder="请输入验证码!">
+      <div class="invalid-feedback" th:text="${codeMsg}">
+        验证码不正确!
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <img th:src="@{/kaptcha}" id="kaptcha" style="width:100px;height:40px;" class="mr-2"/>
+      <a href="javascript:refresh_kaptcha();" class="font-size-12 align-bottom">刷新验证码</a>
+    </div>
+  </div>
+
+  <div class="checkbox ">
+    <label class="form-check-label" for="remember-me">
+      <input type="checkbox" id="remember-me" name="rememberme"
+             th:checked="${param.rememberme}">记住我
+      <a href="forget.html" class="text-danger float-right">忘记密码?</a>
+    </label>
+
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" >立即登录</button>
+  <li class="nav-item mt-5 ml-2 btn-group-vertical">
+    <a class="nav-link" th:href="@{/index}">宅码社区论坛</a>
+  </li>
+  <p class="text-muted">© 2020-2022</p>
+
+</form>
+<script th:src="@{/webjars/jquery/3.5.1/jquery.js}" crossorigin="anonymous"></script>
+<script th:src="@{/js/global.js}"></script>
+<script>
+  function refresh_kaptcha() {
+    var path = CONTEXT_PATH + "/kaptcha?p=" + Math.random();
+    $("#kaptcha").attr("src", path);
+  }
+</script>
+</body>
+
+</html>

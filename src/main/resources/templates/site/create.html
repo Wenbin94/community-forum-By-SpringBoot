@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" th:href="@{/img/ico.png}"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" th:href="@{/css/create.css}" />
+    <link rel="stylesheet" href="../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <title>宅码社区论坛-发帖</title>
+</head>
+<body>
+
+<div class="nk-container">
+    <!-- 头部 -->
+    <header class="bg-dark sticky-top" th:replace="index::header">
+
+    </header>
+    <div class="main">
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">标题：</label>
+                <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+                <label for="message-text" class="col-form-label">正文：</label>
+
+            <div id="md-content" style=" z-index: 1 !important;">
+            <textarea placeholder="博客内容" name="content" id="message-text"  style="display:none;" th:text="*{content}">
+        </textarea>
+            </div>
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary mb-3 mt-3" id="publishBtn" >发布</button>
+    </div>
+        <!-- 提示框 -->
+        <div class="modal fade" id="hintModal" tabindex="-1" role="dialog" aria-labelledby="hintModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="hintModalLabel">提示</h5>
+                    </div>
+                    <div class="modal-body" id="hintBody">
+                        发布完毕!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+   
+
+
+
+
+    <!-- 尾部 -->
+    <footer class="bg-dark" th:replace="index::footer"></footer>
+</div>
+
+<script th:src="@{/webjars/jquery/3.5.1/jquery.js}" crossorigin="anonymous"></script>
+<script th:src="@{/js/global.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+<script th:src="@{js/index.js}"></script>
+<script>
+    // 初始化MarkDown编辑器
+    var contentEditor;
+    $(function() {
+        contentEditor = editormd("md-content", {
+            width   : "100%",
+            height  : 480,
+            syncScrolling : "single",
+            path    : "/community/lib/editormd/lib/", /*因为application.yml中配置了项目根路径为/blog，所以要加上才能访问*/
+            toolbar : true,
+            watch   : false,
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "{:url('/upload')}"
+
+        });
+    });
+</script>
+
+</body>
+</html>

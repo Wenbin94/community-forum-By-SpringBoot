@@ -24,15 +24,15 @@ IDEA：IntelliJ IDEA 2020.1.1 x64
 
 文章详情，通过Spring Security 权限控制并实现了点赞，评论回复，并使用Kafka构建异步消息系统。
 
-![image-20201102182726622](img\image-20201102182726622.png)
+![image-20201102182726622](https://github.com/Wenbin94/community-forum-By-SpringBoot/edit/master/img/image-20201102182726622.png)
 
-![image-20201102182731536](img\image-20201102182731536.png)
+![image-20201102182731536](https://github.com/Wenbin94/community-forum-By-SpringBoot/edit/master/img/image-20201102182731536.png)
 
 #### 登录界面
 
 验证账号密码及验证码，成功时生成凭证发给客户端，服务器通过Redis存储登录凭证。失败时跳回登录页。
 
-![image-20201102183351103](img\image-20201102183351103.png)
+![image-20201102183351103](https://github.com/Wenbin94/community-forum-By-SpringBoot/edit/master/img/image-20201102183351103.png)
 
 
 
@@ -40,10 +40,10 @@ IDEA：IntelliJ IDEA 2020.1.1 x64
 
 使用Redis处理点赞，关注等功能
 
-![image-20201102183445951](img\image-20201102183445951.png)
+![image-20201102183445951](https://github.com/Wenbin94/community-forum-By-SpringBoot/edit/master/img/image-20201102183445951.png)
 
 #### 文章发帖界面
 
 集成markdown富文本编辑器。
 
-![image-20201102183546721](img\\image-20201102183546721.png)
+![image-20201102183546721](https://github.com/Wenbin94/community-forum-By-SpringBoot/edit/master/img/image-20201102183546721.png)

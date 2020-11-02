@@ -18,7 +18,7 @@ IDEA：IntelliJ IDEA 2020.1.1 x64
 
 显示前十个文章，通过分页显示全部文章，默认按发表时间逆序，热度排行按公式排。并可以显示置顶加精贴。
 
-![image-20201102175505880](img\image-20201102175505880.png)
+![image-20201102175505880](https://github.com/Wenbin94/community-forum-By-SpringBoot/edit/master/img/image-20201102175505880.png)
 
 #### 帖子文章详情
 

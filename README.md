@@ -1,6 +1,6 @@
 # community-forum-By-SpringBoot
 
-基于SpringBoot+MyBatis实现，并集成了MySQL,Redis，Kafka，Elasticsearch等。实现了账号注册，会话管理，文章发表，富文本编写显示，生成验证码，文章搜索，账号管理，过滤敏感词，评论私信点赞，事务管理等功能。
+基于SpringBoot+MyBatis实现Javaweb项目，并集成了MySQL,Redis，Kafka，Elasticsearch等。实现了账号注册，会话管理，文章发表，富文本编写显示，生成验证码，文章搜索，账号管理，过滤敏感词，评论私信点赞，事务管理等功能。
 
 
 
